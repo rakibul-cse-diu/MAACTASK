@@ -10,7 +10,7 @@ import './AboutUs.css';
 
 const AboutUs = () => {
     return (
-        <div className='about-container'>
+        <div className='about-container pb-10'>
             <div class="hero min-h-screen bg-transparent">
                 <div class="hero-content flex-col lg:flex-row">
                     <img src={abouUsImg} class="max-w-sm rounded-lg" alt='about us' />
