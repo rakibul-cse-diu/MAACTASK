@@ -3,6 +3,7 @@ import ProductFeatures from '../ProductFeatures/ProductFeatures';
 import AboutUs from './AboutUs/AboutUs';
 import HearoSection from './HeroSection/HearoSection';
 import Question from './Questions/Question';
+import Teams from './Teams/Teams';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <ProductFeatures />
             <AboutUs />
             <Question />
+            <Teams />
         </div>
     );
 };
