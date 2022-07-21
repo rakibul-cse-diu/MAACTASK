@@ -9,7 +9,7 @@ const HearoSection = () => {
                 <h1 className='text-5xl leading-normal font-medium text-accent text-center'>Analytics that transform your <br /> product inside-out</h1>
                 <div className='my-9'>
                     <button className='btn btn-secondary text-primary capitalize text-lg mx-7'>Request for demo</button>
-                    <button className='btn btn-outline btn-secondary text-primary capitalize text-lg shadow-[5px_5px_5px_1px_#0052CC]'>Download</button>
+                    <button className='btn btn-outline btn-secondary text-primary capitalize text-lg shadow-[2px_2px_7px_1px_#0052CC]'>Download</button>
                 </div>
             </div>
             <div className='flex justify-center items-center h-[400px] relative top-[-150px]'>

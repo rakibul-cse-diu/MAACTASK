@@ -11,17 +11,17 @@ import './AboutUs.css';
 const AboutUs = () => {
     return (
         <div className='about-container pb-10'>
-            <div class="hero min-h-screen bg-transparent">
-                <div class="hero-content flex-col lg:flex-row">
-                    <img src={abouUsImg} class="max-w-sm rounded-lg" alt='about us' />
+            <div className="hero min-h-screen bg-transparent">
+                <div className="hero-content flex-col lg:flex-row">
+                    <img src={abouUsImg} className="max-w-sm rounded-lg" alt='about us' />
                     <div className='w-1/2'>
                         <h3 className='text-secondary font-medium'>About Us</h3>
-                        <h1 class="text-5xl font-bold text-accent">A dedicated solution for startups and enterprises</h1>
-                        <p class="py-6 text-base-100">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <h1 className="text-5xl font-bold text-accent">A dedicated solution for startups and enterprises</h1>
+                        <p className="py-6 text-base-100">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                         <hr />
                         <div className='flex mt-6'>
                             <div className='avatar mr-5'>
-                                <div class="w-16 rounded-full">
+                                <div className="w-16 rounded-full">
                                     <img src={avatar} alt='avatar' />
                                 </div>
                             </div>
