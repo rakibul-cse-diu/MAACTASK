@@ -12,7 +12,7 @@ const Header = () => {
             </div>
             <div className="flex-none">
                 <div className="mx-7">
-                    <button className='btn btn-secondary text-primary capitalize text-lg'>Login</button>
+                    <Link to="/signin"><button className='btn btn-secondary text-primary capitalize text-lg'>Login</button></Link>
                 </div>
                 <div className='mx-7'>
                     <Link to="/registration"><button className='btn btn-outline btn-secondary text-lg shadow-[2px_2px_7px_1px_#0052CC] capitalize hover:text-[#ffff]'>Registration</button></Link>

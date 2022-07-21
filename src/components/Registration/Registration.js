@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Registration.css';
 
 const Registration = () => {
@@ -26,6 +27,7 @@ const Registration = () => {
                         <input className='btn btn-secondary capitalize text-primary text-lg font-normal mt-3' type="submit" value="Create Account" />
                     </form>
                 </div>
+                <p className='text-base-100 mt-7 text-center'>Already have an account? <Link to="/signin"><span className='text-secondary'>Sign In</span></Link></p>
             </div>
         </div>
     );
