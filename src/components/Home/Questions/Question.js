@@ -2,12 +2,12 @@ import React from 'react';
 
 const Question = () => {
     return (
-        <div className='bg-secondary py-10'>
+        <div className='bg-secondary py-16'>
             <div className='mb-10'>
                 <h3 className='text-primary text-center font-medium'>About Us</h3>
                 <h1 class="text-3xl font-bold text-center text-primary">Frequently asked questions</h1>
             </div>
-            <div className='px-8'>
+            <div className='px-14'>
                 <div className='grid grid-cols-2 gap-5'>
                     <div>
                         <div tabindex="0" class="collapse collapse-arrow mb-5 border border-primary bg-primary rounded-box">

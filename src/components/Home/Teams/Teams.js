@@ -7,7 +7,7 @@ import aven from '../../../assets/images/teams/Aven.png';
 
 const Teams = () => {
     return (
-        <div className='mt-16'>
+        <div className='mt-20 mb-16'>
             <div className='mb-10'>
                 <h3 className='text-secondary text-3xl text-center font-medium'>5,000+ high-impact teams rely on Fieldx</h3>
             </div>
