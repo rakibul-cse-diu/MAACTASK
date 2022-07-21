@@ -12,10 +12,10 @@ const Header = () => {
             </div>
             <div class="flex-none">
                 <div class="mx-7">
-                    <button className='btn btn-secondary text-primary'>Login</button>
+                    <button className='btn btn-secondary text-primary capitalize text-lg'>Login</button>
                 </div>
                 <div className='mx-7'>
-                    <button className='btn btn-outline btn-secondary text-primary'>Registration</button>
+                    <button className='btn btn-outline btn-secondary text-lg shadow-[5px_5px_5px_1px_#0052CC] capitalize hover:text-[#ffff]'>Registration</button>
                 </div>
                 <div class="dropdown dropdown-end">
                     <label tabIndex="0" class="btn btn-ghost btn-circle avatar">
