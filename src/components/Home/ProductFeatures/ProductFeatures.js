@@ -1,6 +1,6 @@
 import React from 'react';
-import featureIcon from '../../assets/images/icons/feature-icon.png';
-import featureImage from '../../assets/images/product-feature.png'
+import featureIcon from '../../../assets/images/icons/feature-icon.png';
+import featureImage from '../../../assets/images/product-feature.png'
 
 const ProductFeatures = () => {
     return (
