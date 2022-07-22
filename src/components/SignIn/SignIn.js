@@ -1,17 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import userSignIn from '../../services/actions/signInAction';
 import './SignIn.css';
 
 const SignIn = () => {
+
+    const userState = useSelector(state => state.userLogin);
+    const dispatch = useDispatch();
+
+    const [employeeId, setEmployeeId] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSignIn = (e) => {
+        e.preventDefault();
+
+        const data = {
+            employeeId,
+            password,
+        }
+
+        dispatch(userSignIn(data))
+
+        if (userState.token) {
+            localStorage.setItem('accessToken', data.accessToken);
+        }
+
+        console.log(userState);
+    }
+
+
     return (
         <div className='py-16 signin-container flex flex-col justify-center items-center'>
             <div className='bg-primary shadow-xl w-1/2 py-14'>
                 <h1 className='text-3xl font-bold text-accent text-center'>Welcome Back!</h1>
                 <p className='text-base text-base-100 font-light text-center'>Please login to your account</p>
                 <div className='px-16 flex flex-col justify-center items-center'>
-                    <form className='form-control '>
-                        <input className='input bg-transparent border-0 rounded-none border-b-2 border-[#E1E1E1] text-accent mt-3 w-[400px]' type="email" name="email" id="email" placeholder='Enter Your Email' />
-                        <input className='input bg-transparent border-0 rounded-none border-b-2 border-[#E1E1E1] text-accent mt-3 w-[400px]' type="password" name="password" id="password" placeholder='Password' />
+                    <form onSubmit={handleSignIn} className='form-control'>
+                        <input className='input bg-transparent border-0 rounded-none border-b-2 border-[#E1E1E1] text-accent mt-3 w-[400px]' onChange={(e) => setEmployeeId(e.target.value)} type="text" name="employeeId" id="employeeId" placeholder='Enter Your EmployeeId' required />
+                        <input className='input bg-transparent border-0 rounded-none border-b-2 border-[#E1E1E1] text-accent mt-3 w-[400px]' onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" placeholder='Password' required />
                         <input className='btn btn-secondary capitalize text-primary text-lg font-normal mt-3' type="submit" value="Sign In" />
                     </form>
                 </div>

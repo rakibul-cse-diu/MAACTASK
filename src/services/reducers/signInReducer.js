@@ -1,4 +1,4 @@
-import { REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST } from "../constants/signUpConstant"
+import { REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST } from "../constants/signInConstant"
 
 const initialUserState = {
     user: {},
@@ -6,7 +6,7 @@ const initialUserState = {
     error: null
 }
 
-const signUpReducer = (state = initialUserState, action) => {
+const signInReducer = (state = initialUserState, action) => {
     switch (action.type) {
         case SEND_REQUEST:
             return {
@@ -34,4 +34,4 @@ const signUpReducer = (state = initialUserState, action) => {
     }
 }
 
-export default signUpReducer;
+export default signInReducer;

@@ -5,8 +5,9 @@ import './Registration.css';
 import userSignUp from '../../services/actions/signUpAction';
 
 const Registration = () => {
-    const userState = useSelector(state => console.log(state));
+    const userState = useSelector(state => state.userRegister);
     const dispatch = useDispatch();
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [employId, setEmployId] = useState("");
@@ -38,6 +39,10 @@ const Registration = () => {
             setInputError("")
         } else {
             setInputError("Password Does Not Match");
+        }
+
+        if (userState.token) {
+            localStorage.setItem('accessToken', data.accessToken);
         }
 
         console.log(userState);
