@@ -40,11 +40,6 @@ const Registration = () => {
         } else {
             setInputError("Password Does Not Match");
         }
-
-        if (userState.token) {
-            localStorage.setItem('accessToken', data.accessToken);
-        }
-
         console.log(userState);
     }
 

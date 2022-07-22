@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import userSignIn from '../../services/actions/signInAction';
+import { userSignIn } from '../../services/actions/signInAction';
 import './SignIn.css';
 
 const SignIn = () => {
@@ -22,11 +22,7 @@ const SignIn = () => {
 
         dispatch(userSignIn(data))
 
-        if (userState.token) {
-            localStorage.setItem('accessToken', data.accessToken);
-        }
-
-        console.log(userState);
+        console.log(userState.user.token);
     }
 
 

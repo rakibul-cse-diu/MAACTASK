@@ -1,4 +1,4 @@
-import { REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST } from "../constants/signInConstant"
+import { REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST, USER_LOGOUT } from "../constants/signInConstant"
 
 const initialUserState = {
     user: {},
@@ -27,6 +27,13 @@ const signInReducer = (state = initialUserState, action) => {
                 ...state,
                 user: {},
                 error: action.payload
+            }
+
+        case USER_LOGOUT:
+            return {
+                ...state,
+                user: {},
+                error: null
             }
 
         default:

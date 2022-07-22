@@ -16,6 +16,7 @@ const userSignUp = (userData) => async (dispatch) => {
             .then(data => {
                 if (data.status === "success") {
                     dispatch({ type: REQUEST_SUCCESS, payload: data })
+                    localStorage.setItem('accessToken', data.token);
                 } else {
                     dispatch({ type: REQUEST_FAIL, payload: data })
                 }

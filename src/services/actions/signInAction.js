@@ -1,6 +1,6 @@
-import { API_URL, REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST } from "../constants/signInConstant";
+import { API_URL, REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST, USER_LOGOUT } from "../constants/signInConstant";
 
-const userSignIn = (userData) => async (dispatch) => {
+export const userSignIn = (userData) => async (dispatch) => {
     dispatch({ type: SEND_REQUEST });
     try {
         await fetch(API_URL, {
@@ -15,6 +15,7 @@ const userSignIn = (userData) => async (dispatch) => {
             .then(data => {
                 if (data.status === "success") {
                     dispatch({ type: REQUEST_SUCCESS, payload: data })
+                    localStorage.setItem('accessToken', data.token);
                 } else {
                     dispatch({ type: REQUEST_FAIL, payload: data })
                 }
@@ -25,4 +26,7 @@ const userSignIn = (userData) => async (dispatch) => {
     }
 }
 
-export default userSignIn;
+export const logout = () => async (dispatch) => {
+    localStorage.removeItem("accessToken");
+    dispatch({ type: USER_LOGOUT });
+};
