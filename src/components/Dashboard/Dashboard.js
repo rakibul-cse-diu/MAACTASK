@@ -13,7 +13,7 @@ const Dashboard = () => {
                 <div className='lg:hidden w-full flex justify-start items-center'>
                     <label htmlFor="my-drawer" className="btn btn-secondary drawer-button lg:hidden mt-2 text-base-100">Open Sidebar</label>
                 </div>
-                <div class="text-sm breadcrumbs">
+                <div class="text-sm breadcrumbs z-10 overflow-hidden mt-3">
                     <ul>
                         <li>
                             <span className='flex items-center'>
