@@ -33,10 +33,7 @@ const CreateAreaModal = () => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box bg-primary">
                     <h3 className="font-normal py-4 text-base text-[#495057]">Region</h3>
-                    <select onChange={(e) => {
-                        setNewRegion(e.target.value)
-                        console.log(newRegion)
-                    }} class="bg-primary select select-bordered border-[#CED4DA] py-1 w-3/4 text-[#495057]">
+                    <select onChange={(e) => setNewRegion(e.target.value)} class="bg-primary select select-bordered border-[#CED4DA] py-1 w-3/4 text-[#495057]">
                         <option defaultValue="Dhaka">Select region</option>
                         {
                             allRegion.regions?.region?.map((region, index) => <option key={index} value={region._id}>{region.name}</option>)

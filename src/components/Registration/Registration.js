@@ -42,7 +42,6 @@ const Registration = () => {
         } else {
             setInputError("Password Does Not Match");
         }
-        console.log(userState);
     }
 
     if (userState.user.status === "success") {

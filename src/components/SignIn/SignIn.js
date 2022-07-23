@@ -28,7 +28,6 @@ const SignIn = () => {
 
         dispatch(userSignIn(data))
 
-        console.log(userState.user.token);
     }
 
     if (userState.user.status === "success") {

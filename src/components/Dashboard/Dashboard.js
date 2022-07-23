@@ -4,7 +4,6 @@ import geolocation from '../../assets/images/icons/location.png';
 
 const Dashboard = () => {
     const location = useLocation();
-    console.log(location.pathname)
 
     return (
         <div className="drawer drawer-mobile">
@@ -45,7 +44,6 @@ const Dashboard = () => {
                     <li className={location.pathname === '/dashboard/region' && `text-secondary`}><Link to="/dashboard/region">Region</Link></li>
                     <li className={location.pathname === '/dashboard/area' && `text-secondary`}><Link to="/dashboard/area">Area</Link></li>
                 </ul>
-
             </div>
         </div>
     );

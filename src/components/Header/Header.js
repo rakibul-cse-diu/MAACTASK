@@ -11,7 +11,6 @@ const Header = () => {
 
     const handleLogout = () => {
         dispatch(logout());
-        console.log(userState.user.user._id)
     }
 
     return (
