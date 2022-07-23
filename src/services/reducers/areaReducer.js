@@ -1,18 +1,18 @@
-import { REQUEST_CREATE_FAIL, REQUEST_CREATE_SUCCESS, REQUEST_FAIL, REQUEST_SUCCESS, SEND_CREATE_REQUEST, SEND_REQUEST, USER_LOGOUT } from "../constants/regionConstant"
+import { REQUEST_CREATE_FAIL, REQUEST_CREATE_SUCCESS, REQUEST_FAIL, REQUEST_SUCCESS, SEND_CREATE_REQUEST, SEND_REQUEST, USER_LOGOUT } from "../constants/areaConstant"
 
-const initialRegionState = {
-    regions: {},
+const initialAreaState = {
+    areas: {},
     isLoading: false,
     error: null,
 }
-const initialCreatedRegionState = {
-    regions: {},
+const initialCreatedAreaState = {
+    areas: {},
     isLoading: false,
     error: null,
     haveError: false
 }
 
-export const getRegionReducer = (state = initialRegionState, action) => {
+export const getAreaReducer = (state = initialAreaState, action) => {
     switch (action.type) {
         case SEND_REQUEST:
             return {
@@ -23,7 +23,7 @@ export const getRegionReducer = (state = initialRegionState, action) => {
         case REQUEST_SUCCESS:
             return {
                 ...state,
-                regions: action.payload,
+                areas: action.payload,
                 isLoading: false,
                 error: null
             }
@@ -31,14 +31,14 @@ export const getRegionReducer = (state = initialRegionState, action) => {
         case REQUEST_FAIL:
             return {
                 ...state,
-                regions: {},
+                areas: {},
                 error: action.payload
             }
 
         case USER_LOGOUT:
             return {
                 ...state,
-                regions: {},
+                areas: {},
                 error: null
             }
 
@@ -47,7 +47,7 @@ export const getRegionReducer = (state = initialRegionState, action) => {
     }
 }
 
-export const createRegionReducer = (state = initialCreatedRegionState, action) => {
+export const createAreaReducer = (state = initialCreatedAreaState, action) => {
     switch (action.type) {
         case SEND_CREATE_REQUEST:
             return {
@@ -58,7 +58,7 @@ export const createRegionReducer = (state = initialCreatedRegionState, action) =
         case REQUEST_CREATE_SUCCESS:
             return {
                 ...state,
-                regions: action.payload,
+                areas: action.payload,
                 isLoading: false,
                 error: null,
                 haveError: false
@@ -67,7 +67,7 @@ export const createRegionReducer = (state = initialCreatedRegionState, action) =
         case REQUEST_CREATE_FAIL:
             return {
                 ...state,
-                regions: {},
+                areas: {},
                 error: action.payload,
                 haveError: true
             }

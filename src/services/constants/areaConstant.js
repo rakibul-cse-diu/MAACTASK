@@ -1,0 +1,9 @@
+export const SEND_REQUEST = "SEND_AREA_REQUEST";
+export const SEND_CREATE_REQUEST = "SEND_AREA_CREATE_REQUEST";
+export const REQUEST_SUCCESS = "REQUEST_AREA_SUCCESS";
+export const REQUEST_CREATE_SUCCESS = "REQUEST_AREA_CREATE_SUCCESS";
+export const REQUEST_FAIL = "REQUEST_AREA_FAIL";
+export const REQUEST_CREATE_FAIL = "REQUEST_AREA_CREATE_FAIL";
+export const USER_LOGOUT = "USER_LOGOUT";
+export const API_URL_GET_AREA = "https://staging-api.erpxbd.com/api/v1/area/All/5/1";
+export const API_URL_CREATE_AREA = "https://staging-api.erpxbd.com/api/v1/area";

@@ -14,8 +14,7 @@ const CreateRegionModal = () => {
             name: newRegion
         }
         dispatch(createRegion(region));
-
-        if (createdRegion.regions.status === "success") {
+        if (!createdRegion.haveError) {
             dispatch(getRegion())
             toast.success("Region created successfully!")
             setNewRegion("");
