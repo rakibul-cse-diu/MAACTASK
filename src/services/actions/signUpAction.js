@@ -1,10 +1,10 @@
-import { API_URL, REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST } from "../constants/signUpConstant";
+import { API_URL_SIGNUP, REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST, USER_LOGOUT } from "../constants/userConstant";
 
 
-const userSignUp = (userData) => async (dispatch) => {
+export const userSignUp = (userData) => async (dispatch) => {
     dispatch({ type: SEND_REQUEST });
     try {
-        await fetch(API_URL, {
+        await fetch(API_URL_SIGNUP, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,4 +27,7 @@ const userSignUp = (userData) => async (dispatch) => {
     }
 }
 
-export default userSignUp;
+export const logout = () => async (dispatch) => {
+    localStorage.removeItem("accessToken");
+    dispatch({ type: USER_LOGOUT });
+};

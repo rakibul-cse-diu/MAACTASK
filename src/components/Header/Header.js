@@ -6,7 +6,7 @@ import { logout } from '../../services/actions/signInAction';
 
 const Header = () => {
 
-    const userState = useSelector(state => state.userLogin);
+    const userState = useSelector(state => state.userLogin || state.userRegister);
     const dispatch = useDispatch()
 
     const handleLogout = () => {
@@ -22,12 +22,14 @@ const Header = () => {
                 </Link>
             </div>
             <div className="flex-none">
-                <div className="mx-7">
-                    <Link to="/signin"><button className='btn btn-secondary text-primary capitalize text-lg'>Login</button></Link>
-                </div>
-                <div className='mx-7'>
-                    <Link to="/registration"><button className='btn btn-outline btn-secondary text-lg shadow-[2px_2px_7px_1px_#0052CC] capitalize hover:text-[#ffff]'>Registration</button></Link>
-                </div>
+                {
+                    !userState.user.user?._id && <><div className="mx-7">
+                        <Link to="/signin"><button className='btn btn-secondary text-primary capitalize text-lg'>Login</button></Link>
+                    </div>
+                        <div className='mx-7'>
+                            <Link to="/registration"><button className='btn btn-outline btn-secondary text-lg shadow-[2px_2px_7px_1px_#0052CC] capitalize hover:text-[#ffff]'>Registration</button></Link>
+                        </div></>
+                }
                 {
                     userState.user.user?._id && <div className="dropdown dropdown-end">
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">

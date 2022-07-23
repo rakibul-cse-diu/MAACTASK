@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userSignIn } from '../../services/actions/signInAction';
 import './SignIn.css';
 
@@ -8,6 +8,7 @@ const SignIn = () => {
 
     const userState = useSelector(state => state.userLogin);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const [employeeId, setEmployeeId] = useState("");
     const [password, setPassword] = useState("");
@@ -23,6 +24,10 @@ const SignIn = () => {
         dispatch(userSignIn(data))
 
         console.log(userState.user.token);
+    }
+
+    if (userState.user.status === "success") {
+        navigate('/dashboard/region')
     }
 
 

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import './Registration.css';
-import userSignUp from '../../services/actions/signUpAction';
+import { userSignUp } from '../../services/actions/signUpAction';
 
 const Registration = () => {
     const userState = useSelector(state => state.userRegister);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -41,6 +42,10 @@ const Registration = () => {
             setInputError("Password Does Not Match");
         }
         console.log(userState);
+    }
+
+    if (userState.user.status === "success") {
+        navigate('/dashboard/region')
     }
 
     return (

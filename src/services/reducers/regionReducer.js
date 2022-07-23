@@ -1,12 +1,12 @@
-import { REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST } from "../constants/regionConstant"
+import { REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST, USER_LOGOUT } from "../constants/regionConstant"
 
-const initialUserState = {
+const initialRegionState = {
     regions: {},
     isLoading: false,
     error: null
 }
 
-export const getRegionReducer = (state = initialUserState, action) => {
+export const getRegionReducer = (state = initialRegionState, action) => {
     switch (action.type) {
         case SEND_REQUEST:
             return {
@@ -27,6 +27,13 @@ export const getRegionReducer = (state = initialUserState, action) => {
                 ...state,
                 regions: {},
                 error: action.payload
+            }
+
+        case USER_LOGOUT:
+            return {
+                ...state,
+                regions: {},
+                error: null
             }
 
         default:

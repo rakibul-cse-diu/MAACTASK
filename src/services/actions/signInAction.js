@@ -1,9 +1,9 @@
-import { API_URL, REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST, USER_LOGOUT } from "../constants/signInConstant";
+import { API_URL_SIGNIN, REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST, USER_LOGOUT } from "../constants/userConstant";
 
 export const userSignIn = (userData) => async (dispatch) => {
     dispatch({ type: SEND_REQUEST });
     try {
-        await fetch(API_URL, {
+        await fetch(API_URL_SIGNIN, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
