@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL_GET_REGION, REQUEST_FAIL, REQUEST_SUCCESS, SEND_REQUEST } from "../constants/regionConstant";
+import { API_URL_CREATE_REGION, API_URL_GET_REGION, REQUEST_CREATE_FAIL, REQUEST_CREATE_SUCCESS, REQUEST_FAIL, REQUEST_SUCCESS, SEND_CREATE_REQUEST, SEND_REQUEST } from "../constants/regionConstant";
 
 export const getRegion = () => async (dispatch) => {
     dispatch({ type: SEND_REQUEST });
@@ -7,7 +7,7 @@ export const getRegion = () => async (dispatch) => {
         const res = await axios.get(API_URL_GET_REGION, {
             headers: {
                 'Content-Type': 'application/json',
-                // 'Content-Type': 'application/x-www-form-urlencoded',
+
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
         })
@@ -18,7 +18,28 @@ export const getRegion = () => async (dispatch) => {
 }
 
 
-// export const createRegion = () => async (dispatch) => {
-//     localStorage.removeItem("accessToken");
-//     dispatch({ type: USER_LOGOUT });
-// };
+export const createRegion = (regionData) => async (dispatch) => {
+    dispatch({ type: SEND_CREATE_REQUEST });
+    try {
+        await fetch(API_URL_CREATE_REGION, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(regionData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "success") {
+                    dispatch({ type: REQUEST_CREATE_SUCCESS, payload: data })
+                } else {
+                    dispatch({ type: REQUEST_CREATE_FAIL, payload: data })
+                }
+            })
+
+    } catch (error) {
+        dispatch({ type: REQUEST_CREATE_FAIL, payload: error });
+    }
+};

@@ -1,25 +1,24 @@
 import React, { useEffect } from 'react';
 import './Region.css';
-import createRegion from '../../../assets/images/dashboard-bg.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRegion } from '../../../services/actions/regionActon';
 import Row from '../Row';
+import CreateRegionModal from './CreateRegionModal';
 
 const Region = () => {
     const allRegion = useSelector(state => state.getRegion);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getRegion());
-        console.log(allRegion)
-    }, [])
+    }, [dispatch])
 
     if (allRegion) {
-        console.log(allRegion.regions.region)
     }
     return (
         <div className='w-full flex flex-col justify-center items-center'>
-            <button className='btn btn-[#0B2E4E] capitalize text-primary relative left-[400px]'>+ Create New</button>
+            <label htmlFor="create-region" className='btn btn-[#0B2E4E] capitalize text-primary relative left-[400px]'>+ Create New</label>
             <div className='bg-primary mt-9 min-h-[300px] w-[1000px] shadow-lg rounded-sm flex flex-col justify-center items-center h-[450px]'>
                 <div className='w-full pr-5 pt-5'>
                     <div class="form-control flex flex-row justify-end w-full">
@@ -40,7 +39,7 @@ const Region = () => {
                         </thead>
                         <tbody>
                             {
-                                allRegion?.regions?.region?.map((region, index) => <Row
+                                allRegion.regions?.region?.map((region, index) => <Row
                                     key={region._id}
                                     region={region.name}
                                     index={index}
@@ -50,7 +49,7 @@ const Region = () => {
                         </tbody>
                     </table>
                 </div>
-
+                <CreateRegionModal />
             </div>
         </div>
     );
