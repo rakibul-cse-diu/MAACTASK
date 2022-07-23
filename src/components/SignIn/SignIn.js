@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { userSignIn } from '../../services/actions/signInAction';
+import Loading from '../Loading/Loading';
 import './SignIn.css';
 
 const SignIn = () => {
@@ -12,6 +13,10 @@ const SignIn = () => {
 
     const [employeeId, setEmployeeId] = useState("");
     const [password, setPassword] = useState("");
+
+    if (userState.isLoading) {
+        return <Loading />
+    }
 
     const handleSignIn = (e) => {
         e.preventDefault();

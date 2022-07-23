@@ -8,8 +8,11 @@ import SignIn from './components/SignIn/SignIn';
 import Dashboard from './components/Dashboard/Dashboard';
 import Region from './components/Dashboard/Region/Region';
 import Area from './components/Dashboard/Area/Area';
+import { useLocation } from 'react-router-dom';
+import DashboardFooter from './components/Footer/DashboardFooter';
 
 function App() {
+  const location = useLocation()
   return (
     <div className="App">
       <Header />
@@ -22,7 +25,10 @@ function App() {
           <Route path='area' element={<Area />}></Route>
         </Route>
       </Routes>
-      <Footer />
+      {
+        location.pathname.includes('/dashboard') ? <DashboardFooter /> :
+          <Footer />
+      }
     </div>
   );
 }

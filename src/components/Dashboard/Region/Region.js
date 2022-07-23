@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRegion } from '../../../services/actions/regionActon';
 import Row from '../Row';
 import CreateRegionModal from './CreateRegionModal';
+import Loading from '../../Loading/Loading';
 
 const Region = () => {
     const allRegion = useSelector(state => state.getRegion);
@@ -15,6 +16,10 @@ const Region = () => {
     useEffect(() => {
         dispatch(getRegion());
     }, [dispatch])
+
+    if (allRegion.isLoading) {
+        return <Loading />
+    }
 
     const handlechange = (e) => {
         setSearchInput(e.target.value);

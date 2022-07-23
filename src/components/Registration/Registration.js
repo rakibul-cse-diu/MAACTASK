@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import './Registration.css';
 import { userSignUp } from '../../services/actions/signUpAction';
+import Loading from '../Loading/Loading';
 
 const Registration = () => {
     const userState = useSelector(state => state.userRegister);
@@ -18,9 +19,9 @@ const Registration = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [inputError, setInputError] = useState("");
 
-
-
-
+    if (userState.isLoading) {
+        return <Loading />
+    }
 
     const handleSignUp = (e) => {
         e.preventDefault();

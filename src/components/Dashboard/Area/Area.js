@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { getArea } from '../../../services/actions/areaAction';
 import RowArea from './RowArea';
 import CreateAreaModal from './CreateAreaModal';
+import Loading from '../../Loading/Loading';
 
 const Area = () => {
     const allArea = useSelector(state => state.getArea);
@@ -14,6 +15,10 @@ const Area = () => {
     useEffect(() => {
         dispatch(getArea());
     }, [dispatch])
+
+    if (allArea.isLoading) {
+        return <Loading />
+    }
 
     const handlechange = (e) => {
         setSearchInput(e.target.value);
